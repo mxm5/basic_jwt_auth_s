@@ -60,7 +60,11 @@ public class Users implements UserDetails {
     private Date creationDate;
     ////////////////////////////////////////
     // roles privileges
-
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "sayeh_users_roleses",
+            joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "roleses_id", referencedColumnName = "id"))
+    private Set<Roles> roleses = new LinkedHashSet<>();
     ////////////////////////////////////////
     public Long getId() {
         return id;
@@ -105,6 +109,8 @@ public class Users implements UserDetails {
         return false;
     }
 
+    ////////////////////////////////////////
+    // to String
     @Override
     public String toString() {
         return "Users{" +
@@ -114,6 +120,8 @@ public class Users implements UserDetails {
                 '}';
     }
 
+    ////////////////////////////////////////
+    // equals
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -122,8 +130,10 @@ public class Users implements UserDetails {
         return id.equals(users.id);
     }
 
+    ////////////////////////////////////////
+    // hashcode
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return getClass().hashCode();
     }
 }

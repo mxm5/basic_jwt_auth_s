@@ -41,8 +41,25 @@ public class Roles {
     private String roleDescription;
     ////////////////////////////////////////
     // users
+    @ManyToMany(mappedBy = "roleses")
+    private List<Users> userses = new ArrayList<>();
+    ////////////////////////////////////////
+    // privileges
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "roles_privileges",
+            joinColumns = @JoinColumn(name = "roles_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "privileges_id", referencedColumnName = "id"))
+    private Set<Privilege> privileges = new LinkedHashSet<>();
+    ////////////////////////////////////////
 
-
+    @Override
+    public String toString() {
+        return "Roles{" +
+                "roleName='" + roleName + '\'' +
+                ", roleDescription='" + roleDescription + '\'' +
+                ", privileges=" + privileges +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
