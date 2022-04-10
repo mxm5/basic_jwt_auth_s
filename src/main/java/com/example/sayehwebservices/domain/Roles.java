@@ -16,7 +16,7 @@ import java.util.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "roles")
+@Table(name = "sayeh_roles")
 public class Roles {
     ////////////////////////////////////////
     // id

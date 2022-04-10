@@ -1,0 +1,99 @@
+package com.example.sayehwebservices.Config;
+
+import com.example.sayehwebservices.services.UsersService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+
+@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+@RequiredArgsConstructor
+public class Security extends WebSecurityConfigurerAdapter {
+
+    private final JwtFilter jwtFilter;
+    private final UsersService userService;
+    private final AuthenticationEntryPointHandler authenticationEntryPointHandler;
+    private final AccessDeniedResponseHandler accessDeniedResponseHandler;
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .cors()
+                .and()
+                .authorizeRequests()
+                .antMatchers(
+                        "/api/v1/auth/register",
+                        "/api/v1/auth/login",
+//                      "/api/verification",
+//                      "/api/signup",
+//                      "/api/media/download/**",
+//                      "/api/logout",
+//                      "/api/v2/api-docs",
+//                      "/api/configuration/ui",
+//                      "/api/swagger-resources/**",
+//                      "/api/configuration/security",
+//                      "/api/swagger-ui.html",
+                        "/api/webjars/**"
+                ).permitAll()
+                .antMatchers("/**").authenticated().and()
+                .exceptionHandling()
+                .accessDeniedHandler(accessDeniedResponseHandler)
+                .authenticationEntryPoint(authenticationEntryPointHandler)
+                .and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and().addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService);
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Autowired
+    UsersService usersService;
+
+    @Bean
+    public DaoAuthenticationProvider getAuthenticationProvider() {
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setUserDetailsService(usersService);
+        authenticationProvider.setPasswordEncoder(passwordEncoder());
+        return authenticationProvider;
+    }
+
+
+}
+
+class testp {
+    public static void main(String[] args) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String encode = bCryptPasswordEncoder.encode("123456789");
+        System.out.println(encode);
+
+    }
+}

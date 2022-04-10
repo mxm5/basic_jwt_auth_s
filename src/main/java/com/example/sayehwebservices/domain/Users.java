@@ -19,6 +19,26 @@ import java.util.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Users implements UserDetails {
+
+    public Users(String password,
+                 String email,
+                 String userName,
+                 String firstName,
+                 String lastName,
+                 Date creationDate,
+                 Set<Roles> roleses,
+                 String userSubject
+    ) {
+        this.password = password;
+        this.email = email;
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.creationDate = creationDate;
+        this.roleses = roleses;
+        this.userSubject = userSubject;
+    }
+
     ////////////////////////////////////////
     // id
     @Id
@@ -29,8 +49,8 @@ public class Users implements UserDetails {
     // password
     @NotBlank(message = "password cant be blank")
     @NotEmpty(message = "password cant be empty")
-    @Max(message = "must be shorter than 255 characters ", value = 255)
-    @Min(message = " must be at minimum 6 characters", value = 6)
+//    @Max(message = "must be shorter than 255 characters ", value = 255)
+//    @Min(message = " must be at minimum 6 characters", value = 6)
     @Column(name = "password", nullable = false)
     private String password;
     ////////////////////////////////////////
@@ -42,7 +62,7 @@ public class Users implements UserDetails {
     private String email;
     ////////////////////////////////////////
     // username
-    @Column(name = "user_name")
+    @Column(name = "user_name", unique = true)
     @NotEmpty(message = "userName should not be empty")
     @NotBlank(message = "userName should not be blank")
     private String userName;
@@ -66,6 +86,9 @@ public class Users implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "roleses_id", referencedColumnName = "id"))
     private Set<Roles> roleses = new LinkedHashSet<>();
     ////////////////////////////////////////
+    @Column(name = "user_subject", nullable = false, unique = true)
+    private String userSubject;
+
     public Long getId() {
         return id;
     }
@@ -81,42 +104,49 @@ public class Users implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return "access denied";
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return userName;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     ////////////////////////////////////////
     // to String
+
+
     @Override
     public String toString() {
         return "Users{" +
-                "userName='" + userName + '\'' +
+                "id=" + id +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", userName='" + userName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", creationDate=" + creationDate +
+                ", userSubject='" + userSubject + '\'' +
                 '}';
     }
 

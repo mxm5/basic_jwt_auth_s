@@ -12,7 +12,7 @@ import java.util.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "privileges")
+@Table(name = "sayeh_privileges")
 public class Privilege implements GrantedAuthority {
     ////////////////////////////////////////
     // id
