@@ -3,6 +3,10 @@ package com.example.sayehwebservices.controller;
 import com.example.sayehwebservices.Utils.JwtUtils;
 import com.example.sayehwebservices.domain.*;
 import com.example.sayehwebservices.services.UsersService;
+import com.example.sayehwebservices.services.dto.LoginRequestDto;
+import com.example.sayehwebservices.services.dto.LoginResponseDto;
+import com.example.sayehwebservices.services.dto.RegistrationRequestDto;
+import com.example.sayehwebservices.services.dto.RegistrationResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDeniedException;
@@ -61,11 +65,6 @@ public class authController {
                     )
             );
 
-//            log.info(mmm.getName());
-//            log.info(mmm.getCredentials().toString()); raising exception
-//            log.info(mmm.getDetails().toString());
-//            log.info(mmm.getPrincipal().toString());
-//            log.info(mmm.toString());
 
         } catch (Exception e) {
             e.printStackTrace();

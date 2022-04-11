@@ -46,7 +46,7 @@ public class Roles {
     ////////////////////////////////////////
     // privileges
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "roles_privileges",
+    @JoinTable(name = "sayeh_roles_privileges",
             joinColumns = @JoinColumn(name = "roles_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "privileges_id", referencedColumnName = "id"))
     private Set<Privilege> privileges = new LinkedHashSet<>();

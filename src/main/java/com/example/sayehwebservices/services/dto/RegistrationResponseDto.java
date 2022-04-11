@@ -1,6 +1,8 @@
-package com.example.sayehwebservices.domain;
+package com.example.sayehwebservices.services.dto;
 
 
+import com.example.sayehwebservices.domain.Roles;
+import com.example.sayehwebservices.domain.Users;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 

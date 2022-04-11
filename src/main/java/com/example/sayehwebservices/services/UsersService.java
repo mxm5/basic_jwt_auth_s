@@ -1,7 +1,7 @@
 package com.example.sayehwebservices.services;
 
-import com.example.sayehwebservices.domain.RegistrationResponseDto;
-import com.example.sayehwebservices.domain.RegistrationRequestDto;
+import com.example.sayehwebservices.services.dto.RegistrationResponseDto;
+import com.example.sayehwebservices.services.dto.RegistrationRequestDto;
 import com.example.sayehwebservices.domain.Users;
 import com.example.sayehwebservices.repository.UsersRepository;
 import lombok.AllArgsConstructor;

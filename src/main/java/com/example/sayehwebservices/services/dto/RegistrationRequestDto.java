@@ -1,5 +1,6 @@
-package com.example.sayehwebservices.domain;
+package com.example.sayehwebservices.services.dto;
 
+import com.example.sayehwebservices.domain.Roles;
 import lombok.Data;
 
 import java.util.LinkedHashSet;

@@ -1,4 +1,4 @@
-package com.example.sayehwebservices.domain;
+package com.example.sayehwebservices.services.dto;
 
 import lombok.Data;
 
