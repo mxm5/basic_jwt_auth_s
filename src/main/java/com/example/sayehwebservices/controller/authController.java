@@ -61,11 +61,11 @@ public class authController {
                     )
             );
 
-            log.info(mmm.getName());
-            log.info(mmm.getCredentials().toString());
-            log.info(mmm.getDetails().toString());
-            log.info(mmm.getPrincipal().toString());
-            log.info(mmm.toString());
+//            log.info(mmm.getName());
+//            log.info(mmm.getCredentials().toString()); raising exception
+//            log.info(mmm.getDetails().toString());
+//            log.info(mmm.getPrincipal().toString());
+//            log.info(mmm.toString());
 
         } catch (Exception e) {
             e.printStackTrace();

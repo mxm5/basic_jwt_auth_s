@@ -104,7 +104,7 @@ public class Users implements UserDetails {
 
     @Override
     public String getPassword() {
-        return "access denied";
+        return password;
     }
 
     @Override

@@ -29,7 +29,8 @@ class ApplicationInitializer implements ApplicationListener<ContextRefreshedEven
             log.info("could not find user creating the user");
             Users mmmUser = new Users(
                     1L,
-                    "$2a$10$PfL7BIX1Mj/F0ZBcjBhYpeal8S.GSRC9S/Nk8jEZKvCRbgptsKqRO",// bcrypt(123456789)
+//                    "$2a$10$PfL7BIX1Mj/F0ZBcjBhYpeal8S.GSRC9S/Nk8jEZKvCRbgptsKqRO",// bcrypt(123456789)
+                    "$2a$10$acSEDlTWcSfRJODehRBkD.cl8HvgPAmcywEt6gm8JsFK0ZtfcM6GG",
                     "mm@mm.gmail.com",
                     "mmm",
                     "moahammd",
