@@ -1,4 +1,4 @@
-package com.example.sayehwebservices.controller;
+package com.example.sayehwebservices.services.dto;
 
 import lombok.Data;
 
