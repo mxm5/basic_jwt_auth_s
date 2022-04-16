@@ -1,5 +1,6 @@
-package com.example.sayehwebservices.controller;
+package com.example.sayehwebservices.services.dto;
 
+import com.example.sayehwebservices.controller.TXReportRequest;
 import com.example.sayehwebservices.domain.RemainingCredit;
 import com.example.sayehwebservices.services.RemainingCreditService;
 import com.example.sayehwebservices.services.dto.RemainingCreditRequest;
@@ -29,10 +30,11 @@ public class CreditTransactionsController {
     }
 
 
-//    @PostMapping("/transactions-report-by-date-time-range")
-//     getRemainingCredit(@RequestBody RemainingCreditRequest request) {
-//        return remainingCreditService.findByNationalCode(request.getNationalCode());
-//    }
+    @PostMapping("/transactions-report-by-date-time-for-national-code")
+   TXReportResponse  getReportForPerson(@RequestBody TXReportRequest request) throws Exception {
+
+        return remainingCreditService.getReportsFor(request);
+    }
 
 
 
