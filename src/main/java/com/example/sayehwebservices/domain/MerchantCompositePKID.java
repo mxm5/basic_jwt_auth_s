@@ -4,7 +4,7 @@ package com.example.sayehwebservices.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class MerchantCompositeKey implements Serializable {
+public class MerchantCompositePKID implements Serializable {
     private String merCode;
     private String merTerm;
 
@@ -12,7 +12,7 @@ public class MerchantCompositeKey implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MerchantCompositeKey that = (MerchantCompositeKey) o;
+        MerchantCompositePKID that = (MerchantCompositePKID) o;
         return Objects.equals(merCode, that.merCode) && Objects.equals(merTerm, that.merTerm);
     }
 

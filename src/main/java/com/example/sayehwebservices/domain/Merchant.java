@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
-@IdClass(value = MerchantCompositeKey.class )
+@IdClass(value = MerchantCompositePKID.class )
 @Table(name = "TB_MERCHANT_TERMINAL",  catalog = "")
 public class Merchant {
 
