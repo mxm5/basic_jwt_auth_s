@@ -1,5 +1,6 @@
 package com.example.sayehwebservices.controller;
 
+import com.example.sayehwebservices.Utils.AllowedIps;
 import com.example.sayehwebservices.Utils.JwtUtils;
 import com.example.sayehwebservices.domain.*;
 import com.example.sayehwebservices.services.UsersService;

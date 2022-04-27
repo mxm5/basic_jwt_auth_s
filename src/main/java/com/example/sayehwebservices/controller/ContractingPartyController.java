@@ -1,34 +1,40 @@
 package com.example.sayehwebservices.controller;
 
 import com.example.sayehwebservices.services.ContractingPartyService;
-import com.example.sayehwebservices.services.dto.RemainingCreditRequest;
-import com.example.sayehwebservices.services.dto.RemainingCreditResponse;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.sayehwebservices.services.dto.ContractPartyListResponse;
+import com.example.sayehwebservices.services.dto.ContractorByCityRequest;
+import com.example.sayehwebservices.services.dto.ContractorByCountyRequest;
+import com.example.sayehwebservices.services.dto.ContractorByProvinceRequest;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequiredArgsConstructor
+@RequestMapping("/api/v1/contracting-party")
+@AllArgsConstructor
+@Slf4j
 public class ContractingPartyController {
 
 
     final ContractingPartyService contractingPartyService;
 
-//    @PostMapping("/list-contract-parties-by-province")
-//    ContractPartyListResponce getByProvince(@RequestBody ContractorByProvinceRequest request) {
-//        return contractingPartyService.getByProvince(request);
-//    }
-//
-//    @PostMapping("/list-contract-parties-by-city")
-//    ContractPartyListResponce getByCity(@RequestBody ContractorByCityRequest request) {
-//        return contractingPartyService.getByCity(request);
-//    }
-//
-//    @PostMapping("/list-contract-parties-by-county")
-//    ContractPartyListResponce getByCounty(@RequestBody ContractorByCountyRequest request) {
-//        return contractingPartyService.getByCounty(request);
-//    }
+    @PostMapping("/list-contract-parties-by-province")
+    ContractPartyListResponse getByProvince(@RequestBody ContractorByProvinceRequest request) throws Exception {
+        System.out.println(request);
+        return contractingPartyService.getByProvince(request);
+    }
+
+    @PostMapping("/list-contract-parties-by-city")
+    ContractPartyListResponse getByCity(@RequestBody ContractorByCityRequest request) throws Exception {
+        return contractingPartyService.getByCity(request);
+    }
+
+    @PostMapping("/list-contract-parties-by-county")
+    ContractPartyListResponse getByCounty(@RequestBody ContractorByCountyRequest request) throws Exception{
+        return contractingPartyService.getByCounty(request);
+    }
 
 }

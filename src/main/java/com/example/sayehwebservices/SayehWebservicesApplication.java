@@ -1,6 +1,6 @@
 package com.example.sayehwebservices;
 
-import com.example.sayehwebservices.domain.khanevar;
+import com.example.sayehwebservices.domain.Merchant;
 import com.example.sayehwebservices.repository.KhanevarRepository;
 import com.example.sayehwebservices.repository.MerchantRepository;
 import com.example.sayehwebservices.repository.UsersRepository;
@@ -11,11 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 public class SayehWebservicesApplication implements CommandLineRunner {
@@ -35,9 +30,10 @@ public class SayehWebservicesApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        2529576092   has 6 members
-        List<khanevar> byResSsn = khanevarRepository.findByResSsn("2529576092");
-        byResSsn.forEach(System.out::println);
-
+        //  2529576092   has 6 members
+        Pageable page=PageRequest.of(0,10);
+        Page<Merchant> byMerCountyCode = merchantRepository.findByMerCountyCode(null, page);
+        System.out.println(" size was "+byMerCountyCode.getContent().size());
+        byMerCountyCode.forEach(System.out::println);
     }
 }

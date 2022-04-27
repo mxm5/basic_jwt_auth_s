@@ -1,36 +1,37 @@
 package com.example.sayehwebservices.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
-@IdClass(value = MerchantCompositePKID.class )
-@Table(name = "TB_MERCHANT_TERMINAL",  catalog = "")
+@Table(name = "TB_MERCHANT_TERMINAL", schema = "SAYEH", catalog = "")
+@IdClass(MerchantPK.class)
+@Setter
+@Getter
+@NoArgsConstructor
+@ToString
 public class Merchant {
-
-
     @Id
-    @Basic
-    @Column(name = "MER_CODE", nullable = true, length = 10)
+    @Column(name = "MER_CODE", nullable = false, length = 10)
     private String merCode;
-
-
-    @Id
-    @Basic
-    @Column(name = "MER_TERM", nullable = true, length = 100)
-    private String merTerm;
-
     @Basic
     @Column(name = "MER_NAME", nullable = true, length = 100)
     private String merName;
-
+    @Id
+    @Column(name = "MER_TERM", nullable = false, length = 100)
+    private String merTerm;
     @Basic
-    @Column(name = "MER_PROVUNCE_CODE", nullable = true, length = 100)
-    private String merProvunceCode;
+    @Column(name = "MER_PROVINCE_CODE", nullable = true, length = 100)
+    private String merProvinceCode;
     @Basic
-    @Column(name = "MER_PROVUNCE", nullable = true, length = 100)
-    private String merProvunce;
+    @Column(name = "MER_PROVINCE", nullable = true, length = 100)
+    private String merProvince;
     @Basic
     @Column(name = "MER_COUNTY_CODE", nullable = true, length = 100)
     private String merCountyCode;
@@ -46,8 +47,8 @@ public class Merchant {
     @Basic
     @Column(name = "MER_ADDRESS", nullable = true, length = 1000)
     private String merAddress;
-    @Basic
-    @Column(name = "MER_PSPCODE", nullable = true, length = 100)
+    @Id
+    @Column(name = "MER_PSPCODE", nullable = false, length = 100)
     private String merPspcode;
     @Basic
     @Column(name = "MER_PSP", nullable = true, length = 100)
@@ -103,18 +104,23 @@ public class Merchant {
     @Basic
     @Column(name = "MER_ENDDATE", nullable = true, length = 100)
     private String merEnddate;
-
+    @Basic
+    @Column(name = "MER_PROVUNCE", nullable = true, length = 100)
+    private String merProvunce;
+    @Basic
+    @Column(name = "MER_PROVUNCE_CODE", nullable = true, length = 100)
+    private String merProvunceCode;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Merchant merchant = (Merchant) o;
-        return Objects.equals(merCode, merchant.merCode) && Objects.equals(merTerm, merchant.merTerm);
+        return merCode.equals(merchant.merCode) && merTerm.equals(merchant.merTerm) && merPspcode.equals(merchant.merPspcode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(merCode, merTerm);
+        return Objects.hash(merCode, merTerm, merPspcode);
     }
 }
