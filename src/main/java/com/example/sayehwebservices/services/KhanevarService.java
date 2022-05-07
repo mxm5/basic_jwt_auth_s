@@ -17,7 +17,7 @@ public class KhanevarService {
     KhanevarRepository khanevarRepository;
 
    public FamilyMembersRes getFamilyMembersByParentNationalCode(String nationalCode) {
-       List<khanevar> byResSsn = khanevarRepository.findByResSsn(nationalCode);
+       List<khanevar> byResSsn = khanevarRepository.findByResSsnNativeQuery(nationalCode);
        return new FamilyMembersRes(byResSsn);
    }
 
