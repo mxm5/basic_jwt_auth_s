@@ -18,29 +18,29 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 @SpringBootApplication
-public class SayehWebservicesApplication implements CommandLineRunner {
+public class SayehWebservicesApplication /*implements CommandLineRunner*/ {
 
     public static void main(String[] args) {
         SpringApplication.run(SayehWebservicesApplication.class, args);
     }
 
-    @Autowired
-    UsersRepository usersRepository;
-
-    @Autowired
-    MerchantRepository merchantRepository;
-
-    @Autowired
-    KhanevarRepository khanevarRepository;
-
-    @Autowired
-    KhanevarService khanevarService;
-
-    @Override
-    public void run(String... args) throws Exception {
-        //  2529576092   has 6 members
-        Pageable page=PageRequest.of(0,10);
-        FamilyMembersRes familyMembersByParentNationalCode = khanevarService.getFamilyMembersByParentNationalCode("2529576092");
-        familyMembersByParentNationalCode.getFamilyMembers().forEach(System.out::println);
-    }
+//    @Autowired
+//    UsersRepository usersRepository;
+//
+//    @Autowired
+//    MerchantRepository merchantRepository;
+//
+//    @Autowired
+//    KhanevarRepository khanevarRepository;
+//
+//    @Autowired
+//    KhanevarService khanevarService;
+//
+//    @Override
+//    public void run(String... args) throws Exception {
+//        //  2529576092   has 6 members
+//        Pageable page=PageRequest.of(0,10);
+//        FamilyMembersRes familyMembersByParentNationalCode = khanevarService.getFamilyMembersByParentNationalCode("2529576092");
+//        familyMembersByParentNationalCode.getFamilyMembers().forEach(System.out::println);
+//    }
 }
