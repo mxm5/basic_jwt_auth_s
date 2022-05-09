@@ -1,7 +1,9 @@
 package com.example.sayehwebservices.controller;
 
 import com.example.sayehwebservices.services.RegionService;
+import com.example.sayehwebservices.services.dto.CityResponseDto;
 import com.example.sayehwebservices.services.dto.NationalCodeRequest;
+import com.example.sayehwebservices.services.dto.ProvinceCodeRequestDto;
 import com.example.sayehwebservices.services.dto.ProvinceResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +24,11 @@ public class RegionController {
     @GetMapping("/get-all-provinces")
     List<ProvinceResponseDto> getAllProvinces() {
         return regionService.getAllProvinces();
+    }
+
+    @PostMapping("/get-cities-by-province-code")
+    List<CityResponseDto> getCitiesByProvinceCode(@RequestBody ProvinceCodeRequestDto provinceCodeRequest) {
+        return regionService.getAllCitiesForProvince(provinceCodeRequest.getProvinceCode());
     }
 
 }
