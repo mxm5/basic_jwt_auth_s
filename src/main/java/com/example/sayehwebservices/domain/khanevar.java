@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.Objects;
 
 
@@ -38,17 +39,22 @@ public class khanevar {
     @Column(name = "LOC", nullable = true, length = 10)
     private String loc;
 
+    @Basic
+    @Column(name = "DECILE", nullable = true, precision = 0)
+    private BigInteger decile;
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         khanevar khanevar = (khanevar) o;
-        return Objects.equals(ssn, khanevar.ssn) && Objects.equals(firstname, khanevar.firstname) && Objects.equals(lastname, khanevar.lastname) && Objects.equals(fathername, khanevar.fathername) && Objects.equals(shamsibirthdate, khanevar.shamsibirthdate);
+        return ssn.equals(khanevar.ssn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ssn, firstname, lastname, fathername, shamsibirthdate);
+        return Objects.hash(ssn);
     }
 
     @Override
