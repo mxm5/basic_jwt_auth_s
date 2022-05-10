@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "VW_VARIZ", schema = "SAYEH", catalog = "")
+@Table(name = "VW_SETTLED_DEPOSIT", schema = "SAYEH", catalog = "")
 @IdClass(SettledDepositPk.class)
 public class SettledDeposit {
     @Id

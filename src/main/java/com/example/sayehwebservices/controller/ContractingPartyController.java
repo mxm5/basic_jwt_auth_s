@@ -33,7 +33,7 @@ public class ContractingPartyController {
     }
 
     @PostMapping("/list-contract-parties-by-county")
-    ContractPartyListResponse getByCounty(@RequestBody ContractorByCountyRequest request) throws Exception{
+    ContractPartyListResponse getByCounty(@RequestBody ContractorByCountyRequest request) throws Exception {
         return contractingPartyService.getByCounty(request);
     }
 
