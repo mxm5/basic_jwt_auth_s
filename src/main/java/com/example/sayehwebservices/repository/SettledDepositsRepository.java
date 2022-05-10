@@ -9,8 +9,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+
 @Repository
 public interface SettledDepositsRepository extends JpaRepository<SettledDeposit, SettledDepositPk> {
+
+
+    Page<SettledDeposit> findByTransdateBetweenAndResSsnIs(Date start, Date end, String resSsn, Pageable of);
 
 //    Page<SettledDeposit> findByResSsnAndAndTransdateIsBetween(String resSsn,,,Pageable pageable);
     //

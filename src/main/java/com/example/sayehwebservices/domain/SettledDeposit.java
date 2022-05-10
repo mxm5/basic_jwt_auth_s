@@ -1,12 +1,14 @@
 package com.example.sayehwebservices.domain;
 
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "VW_SETTLED_DEPOSIT", schema = "SAYEH", catalog = "")
+@Table(name = "VW_VARIZ", schema = "SAYEH", catalog = "")
 @IdClass(SettledDepositPk.class)
 public class SettledDeposit {
     @Id
@@ -20,6 +22,15 @@ public class SettledDeposit {
     @Basic
     @Column(name = "F03_AMOUNT", nullable = true, precision = 0)
     private BigInteger f03Amount;
+
+    @Override
+    public String toString() {
+        return "SettledDeposit{" +
+                "transdate=" + transdate +
+                ", resSsn='" + resSsn + '\'' +
+                ", f03Amount=" + f03Amount +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
