@@ -10,6 +10,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "VW_REFAH_KHANEVAR")
+// todo : move to physical table with index on the ssn or national code so the performance can boost
 @Getter
 @Setter
 @NoArgsConstructor
