@@ -1,14 +1,12 @@
 package com.example.sayehwebservices.services;
 
-import com.example.sayehwebservices.domain.SettledDeposit;
-import com.example.sayehwebservices.repository.SettledDepositsRepository;
+import com.example.sayehwebservices.domain.Deposit;
+import com.example.sayehwebservices.repository.DepositsRepository;
 import com.example.sayehwebservices.services.dto.DepositReportRequest;
 import com.example.sayehwebservices.services.dto.DepositResponseDto;
-import com.example.sayehwebservices.services.dto.TXReportRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,14 +16,14 @@ public class DepositService {
 
 
     @Autowired
-    SettledDepositsRepository depositsRepository;
+    DepositsRepository depositsRepository;
 
     public DepositResponseDto getAllDeposits(DepositReportRequest request) throws Exception {
         PageRequest page = PageRequest.of(request.getOffset(), request.getSize());
 //        check end date is before start date
         if (request.getStart().after(request.getEnd())) throw new Exception(" start should be before end");
-        Page<SettledDeposit> settledDepositsPage = depositsRepository.findByTransdateBetweenAndResSsnIs(request.getStart(), request.getEnd(), request.getNationalCode(), page);
-        List<SettledDeposit> content = settledDepositsPage.getContent();
+        Page<Deposit> settledDepositsPage = depositsRepository.findByTransdateBetweenAndResSsnIs(request.getStart(), request.getEnd(), request.getNationalCode(), page);
+        List<Deposit> content = settledDepositsPage.getContent();
         content.forEach(System.out::println);
         DepositResponseDto depositResponseDto = new DepositResponseDto(
                 content,

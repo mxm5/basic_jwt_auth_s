@@ -1,6 +1,6 @@
 package com.example.sayehwebservices.services.dto;
 
-import com.example.sayehwebservices.domain.SettledDeposit;
+import com.example.sayehwebservices.domain.Deposit;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
@@ -10,14 +10,14 @@ import java.util.Objects;
 
 
 public class DepositResponseDto {
-    List<SettledDeposit> deposits;
+    List<Deposit> deposits;
     int total;
 
-    public List<SettledDeposit> getDeposits() {
+    public List<Deposit> getDeposits() {
         return deposits;
     }
 
-    public void setDeposits(List<SettledDeposit> deposits) {
+    public void setDeposits(List<Deposit> deposits) {
         this.deposits = deposits;
     }
 
@@ -29,7 +29,7 @@ public class DepositResponseDto {
         this.total = total;
     }
 
-    public DepositResponseDto(List<SettledDeposit> deposits, int total) {
+    public DepositResponseDto(List<Deposit> deposits, int total) {
         this.deposits = deposits;
         this.total = total;
     }
