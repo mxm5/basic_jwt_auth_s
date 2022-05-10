@@ -1,5 +1,7 @@
 package com.example.sayehwebservices.Config.exception;
 
+import com.github.mfathi91.time.PersianDate;
+import com.github.mfathi91.time.PersianDateTime;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -21,8 +23,25 @@ public class GlobalExceptionHandlerBean {
         );
 
         return new ResponseEntity(
-          errorResponse,
-          HttpStatus.NOT_FOUND
+                errorResponse,
+                HttpStatus.NOT_FOUND
+        );
+
+    }
+
+
+    @ExceptionHandler(DecileInfoCodedException.class)
+    public ResponseEntity<?> handleDecileExceptions(DecileInfoCodedException exception, WebRequest request) {
+
+        DecileErrorResponse decileErrorResponse = new DecileErrorResponse(
+                PersianDateTime.fromGregorian(LocalDateTime.now()),
+                exception.getMsg(),
+                exception.getErrorCode()
+        );
+
+        return new ResponseEntity(
+                decileErrorResponse,
+                HttpStatus.NOT_FOUND
         );
 
     }
