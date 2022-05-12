@@ -16,7 +16,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 @RestController
 @RequestMapping("/api/v1/family")
 @AllArgsConstructor
-@Slf4j
 public class FamilyController {
 
     final
