@@ -13,7 +13,7 @@ import java.util.Random;
 @Service
 public class EconomicInfoService {
 
-
+//TODO: SEND REAL DATA BASE DATA
     public EcoInfoResponseDto getByPersonNationalCode(String nationalCode) {
         Random r = new Random();
         int low =20485932 ;
