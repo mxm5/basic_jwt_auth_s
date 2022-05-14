@@ -22,4 +22,6 @@ public class FamilyEcoInfoController {
     EcoInfoResponseDto get(@RequestBody NationalCodeRequest nationalCodeRequest) {
         return ecoInfoService.getByPersonNationalCode(nationalCodeRequest.getNationalCode());
     }
+
+
 }
