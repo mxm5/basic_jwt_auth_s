@@ -25,4 +25,6 @@ public class PersonExistenceInformation {
         return ssnStatService.getForPersonByNationalCode(nationalCodeRequest.getNationalCode());
     }
 
+
+
 }

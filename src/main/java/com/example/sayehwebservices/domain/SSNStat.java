@@ -24,17 +24,20 @@ public class SSNStat {
     @Basic
     @Column(name = "DECILE", nullable = true, precision = 0)
     private int decile;
+    @Basic
+    @Column(name = "MASHMOOL", nullable = true, precision = 0)
+    private int mashmool;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SSNStat that = (SSNStat) o;
-        return Objects.equals(ssn, that.ssn) && Objects.equals(ssnStat, that.ssnStat) && Objects.equals(decile, that.decile);
+        SSNStat ssnStat1 = (SSNStat) o;
+        return ssnStat == ssnStat1.ssnStat && decile == ssnStat1.decile && Objects.equals(ssn, ssnStat1.ssn) && Objects.equals(mashmool, ssnStat1.mashmool);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ssn, ssnStat, decile);
+        return Objects.hash(ssn, ssnStat, decile, mashmool);
     }
 }

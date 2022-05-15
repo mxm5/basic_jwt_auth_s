@@ -27,12 +27,18 @@ public class SSNStatService {
                 return new SSNStatResponseDto(
                         "این کد ملی به عنوان سرپرست در سامانه ثبت شده است",
                         1,
-                        statusByNationalCode.getDecile());
+                        statusByNationalCode.getDecile(),
+                        statusByNationalCode.getMashmool()!=0
+
+                );
             } else {
                 return new SSNStatResponseDto(
                         "این کد ملی به عنوان فرد غیر سرپرست ثبت شده میباشد",
                         2,
-                        statusByNationalCode.getDecile());
+                        statusByNationalCode.getDecile(),
+                        statusByNationalCode.getMashmool()!=0
+
+                );
             }
         } else {
             return new SSNStatResponseDto(
