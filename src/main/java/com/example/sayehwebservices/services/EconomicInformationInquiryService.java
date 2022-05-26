@@ -38,14 +38,14 @@ public class EconomicInformationInquiryService {
 
     public GeneralEconomicStatusResponse getEconomicStatuesForPersonByNationalCode(String nationalCode) {
 
-        List<CardPercentileReport> cardPercentileReports = percentileRepo
-                .findByResSsn(nationalCode);
-        List<CarInformation> carInformationList = carsRepo
-                .findByResSsn(nationalCode);
-        List<EarningReport> earningReports = earningRepo
-                .findByResSsn(nationalCode);
-        List<RareDeceasesInfo> rareDeceasesInfos = deceaseRepo
-                .findByResSsn(nationalCode);
+//        List<CardPercentileReport> cardPercentileReports = percentileRepo
+//                .findByResSsn(nationalCode);
+//        List<CarInformation> carInformationList = carsRepo
+//                .findByResSsn(nationalCode);
+//        List<EarningReport> earningReports = earningRepo
+//                .findByResSsn(nationalCode);
+//        List<RareDeceasesInfo> rareDeceasesInfos = deceaseRepo
+//                .findByResSsn(nationalCode);
 
 //       return new GeneralEconomicStatusResponse(
 //                cardPercentileReports,
@@ -54,27 +54,27 @@ public class EconomicInformationInquiryService {
 //                rareDeceasesInfos
 //        );
 //        double percentile = Math.random() * 99L;
-        String parentsNationalCode =nationalCode;
-        String PeriodTitle="شش ماهه اول 1400";
-        String sonSsn="3687895123";
-        String sonsFirstName= PersianFaker.getName();
-        String allLastName=PersianFaker.getFamily();
-        Long sonsPercentile=33L;
-        Long sonsRangeStart=70_000_000L;
-        Long sonsRangeEnd=800_000_000L;
-        String daughterSsn="3312578941";
-        String daughterFirstname=PersianFaker.getName();
-        String daughterLastName=PersianFaker.getFamily();
-        Long daughterPercentile=65L;
-        Long daughterRangeStart=40_000_000L;
-        Long daughterRangeEnd=60_000_000L;
+        String parentsNationalCode = nationalCode;
+        String PeriodTitle = "شش ماهه اول 1400";
+        String sonSsn = "3687895123";
+        String sonsFirstName = PersianFaker.getName();
+        String allLastName = PersianFaker.getFamily();
+        Long sonsPercentile = 33L;
+        Long sonsRangeStart = 70_000_000L;
+        Long sonsRangeEnd = 800_000_000L;
+        String daughterSsn = "3312578941";
+        String daughterFirstname = PersianFaker.getName();
+        String daughterLastName = PersianFaker.getFamily();
+        Long daughterPercentile = 65L;
+        Long daughterRangeStart = 40_000_000L;
+        Long daughterRangeEnd = 60_000_000L;
         String wifeFirstName = PersianFaker.getName();
         String daughtercarType = "پژو";
-        String daughterCategory="پارس";
-        String daughterIdn="33ج157ایران11";
-        Short daughterYear=(short) 1365;
-        String sonsCategory="405";
-        String wifeSsn="557896314258";
+        String daughterCategory = "پارس";
+        String daughterIdn = "33ج157ایران11";
+        Short daughterYear = (short) 1365;
+        String sonsCategory = "405";
+        String wifeSsn = "557896314258";
         return new GeneralEconomicStatusResponse(
                 List.of(
                         new CardPercentileReport(
@@ -119,17 +119,16 @@ public class EconomicInformationInquiryService {
                                 daughterIdn,
                                 daughterYear
                         ),
-                        new CarInformation
-                                (
-                                        parentsNationalCode,
-                                        sonSsn,
-                                        sonsFirstName,
-                                        allLastName,
-                                        daughtercarType,
-                                        sonsCategory,
-                                        daughterIdn,
-                                        daughterYear
-                                ),
+                        new CarInformation(
+                                parentsNationalCode,
+                                sonSsn,
+                                sonsFirstName,
+                                allLastName,
+                                daughtercarType,
+                                sonsCategory,
+                                daughterIdn,
+                                daughterYear
+                        ),
                         new CarInformation
                                 (
                                         parentsNationalCode,
