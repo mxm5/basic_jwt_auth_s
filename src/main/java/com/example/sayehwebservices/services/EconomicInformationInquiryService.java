@@ -75,6 +75,7 @@ public class EconomicInformationInquiryService {
         Short daughterYear = (short) 1365;
         String sonsCategory = "405";
         String wifeSsn = "557896314258";
+        String taminEjtemaInsuranse = "تامین جتماعی";
         return new GeneralEconomicStatusResponse(
                 List.of(
                         new CardPercentileReport(
@@ -150,7 +151,7 @@ public class EconomicInformationInquiryService {
                                 sonsRangeStart,
                                 sonsRangeEnd,
                                 "کارگر ساختمانی",
-                                "تامین جتماعی"
+                                taminEjtemaInsuranse
                         ),
                         new EarningReport(
                                 parentsNationalCode, daughterSsn,
@@ -159,7 +160,7 @@ public class EconomicInformationInquiryService {
                                 sonsRangeStart,
                                 sonsRangeEnd,
                                 "معلم",
-                                "تامین جتماعی"
+                                taminEjtemaInsuranse
                         ),
                         new EarningReport(
                                 parentsNationalCode,
@@ -169,7 +170,7 @@ public class EconomicInformationInquiryService {
                                 sonsRangeStart,
                                 sonsRangeEnd,
                                 "آرایشگر",
-                                "تامین جتماعی"
+                                taminEjtemaInsuranse
                         ),
                         new EarningReport(
                                 parentsNationalCode,
@@ -179,7 +180,7 @@ public class EconomicInformationInquiryService {
                                 sonsRangeStart,
                                 sonsRangeEnd,
                                 "کارمند",
-                                "تامین جتماعی"
+                                taminEjtemaInsuranse
                         )
                 ),
                 List.of(
