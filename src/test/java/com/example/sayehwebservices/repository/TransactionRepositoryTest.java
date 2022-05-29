@@ -1,8 +1,8 @@
 package com.example.sayehwebservices.repository;
 
+import com.example.sayehwebservices.domain.RegisteredPublicProfile;
 import com.example.sayehwebservices.domain.Transaction;
 import com.github.mfathi91.time.PersianDate;
-import com.github.mfathi91.time.PersianDateTime;
 import com.github.mfathi91.time.PersianMonth;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,6 @@ import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.List;
 
 //import static org.graalvm.compiler.asm.sparc.SPARCAssembler.Fcn.Page;
 
@@ -28,6 +27,21 @@ class TransactionRepositoryTest {
 
     @Autowired
     TransactionRepository transactionRepository;
+
+
+
+    @Autowired PublicProfileRepository publicProfileRepository;
+
+    @Test
+    void testForQueryingCVReg() {
+
+        RegisteredPublicProfile byNationalcodeAndBirthdate = publicProfileRepository.findByNationalcodeAndBirthdate(
+                "1600037461","1959-01-29"
+        );
+        System.out.println(byNationalcodeAndBirthdate);
+    }
+
+
 
     @Test
     void findTransactionsPagedByTwoDateRanges() {

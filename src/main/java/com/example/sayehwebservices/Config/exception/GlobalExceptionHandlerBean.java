@@ -2,6 +2,7 @@ package com.example.sayehwebservices.Config.exception;
 
 import com.github.mfathi91.time.PersianDate;
 import com.github.mfathi91.time.PersianDateTime;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -11,6 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 import java.time.LocalDateTime;
 
 @ControllerAdvice
+@Slf4j
 public class GlobalExceptionHandlerBean {
 
     @ExceptionHandler(Exception.class)
@@ -21,7 +23,9 @@ public class GlobalExceptionHandlerBean {
                 exception.getMessage(),
                 request.getDescription(false)
         );
-
+        log.error(exception.getMessage());
+        log.error(exception.getCause().toString());
+        log.error(exception.getStackTrace().toString());
         return new ResponseEntity(
                 errorResponse,
                 HttpStatus.NOT_FOUND
