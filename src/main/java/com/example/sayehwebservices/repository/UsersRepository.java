@@ -1,6 +1,6 @@
 package com.example.sayehwebservices.repository;
 
-import com.example.sayehwebservices.domain.security.Users;
+import com.example.sayehwebservices.domain.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

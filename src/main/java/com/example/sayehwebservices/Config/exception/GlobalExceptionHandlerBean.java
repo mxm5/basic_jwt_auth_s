@@ -26,7 +26,6 @@ public class GlobalExceptionHandlerBean {
         log.error(exception.getMessage());
         log.error(exception.getCause().toString());
         log.error(exception.getStackTrace().toString());
-        exception.printStackTrace();
         return new ResponseEntity(
                 errorResponse,
                 HttpStatus.NOT_FOUND

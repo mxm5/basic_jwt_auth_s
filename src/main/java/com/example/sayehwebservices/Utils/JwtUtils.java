@@ -1,6 +1,6 @@
 package com.example.sayehwebservices.Utils;
 
-import com.example.sayehwebservices.domain.security.Users;
+import com.example.sayehwebservices.domain.Users;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Service;

@@ -1,11 +1,13 @@
 package com.example.sayehwebservices.services.dto;
 
 
-import com.example.sayehwebservices.domain.security.Roles;
-import com.example.sayehwebservices.domain.security.Users;
+import com.example.sayehwebservices.domain.Roles;
+import com.example.sayehwebservices.domain.Users;
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.sql.Date;
+import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

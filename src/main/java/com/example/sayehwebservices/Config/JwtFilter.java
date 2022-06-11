@@ -2,7 +2,7 @@ package com.example.sayehwebservices.Config;
 
 
 import com.example.sayehwebservices.Utils.JwtUtils;
-import com.example.sayehwebservices.domain.security.Users;
+import com.example.sayehwebservices.domain.Users;
 import com.example.sayehwebservices.services.UsersService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
