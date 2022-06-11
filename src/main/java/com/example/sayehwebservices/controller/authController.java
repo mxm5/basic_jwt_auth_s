@@ -2,7 +2,7 @@ package com.example.sayehwebservices.controller;
 
 import com.example.sayehwebservices.Utils.AllowedIps;
 import com.example.sayehwebservices.Utils.JwtUtils;
-import com.example.sayehwebservices.domain.*;
+import com.example.sayehwebservices.domain.security.Users;
 import com.example.sayehwebservices.services.UsersService;
 import com.example.sayehwebservices.services.dto.LoginRequestDto;
 import com.example.sayehwebservices.services.dto.LoginResponseDto;
@@ -58,8 +58,6 @@ public class authController {
         String password = requestDto.getPassword();
         String loginIpAddress = request.getRemoteAddr();
         try {
-            log.info(userName);
-            log.info(password);
             Authentication mmm = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             userName, password

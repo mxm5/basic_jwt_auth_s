@@ -1,4 +1,4 @@
-package com.example.sayehwebservices.domain;
+package com.example.sayehwebservices.domain.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

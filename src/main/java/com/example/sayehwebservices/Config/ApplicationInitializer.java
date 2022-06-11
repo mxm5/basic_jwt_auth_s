@@ -1,6 +1,6 @@
 package com.example.sayehwebservices.Config;
 
-import com.example.sayehwebservices.domain.Users;
+import com.example.sayehwebservices.domain.security.Users;
 import com.example.sayehwebservices.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
