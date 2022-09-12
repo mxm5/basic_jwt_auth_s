@@ -25,14 +25,14 @@ class ApplicationInitializer implements ApplicationListener<ContextRefreshedEven
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        if (userRepository.findByUserName("mmm") == null) {
+        if (userRepository.findByUserName("ftme") == null) {
             log.info("could not find user creating the user");
             Users mmmUser = new Users(
                     "$2a$10$acSEDlTWcSfRJODehRBkD.cl8HvgPAmcywEt6gm8JsFK0ZtfcM6GG",
                     "mm@mm.gmail.com",
-                    "mmm",
-                    "moahammd",
-                    "mohammadian",
+                    "ftme",
+                    "fatemeh",
+                    "mohammadi",
                     Date.valueOf(LocalDate.now()),
                     new HashSet<>(),
                     "123456789"

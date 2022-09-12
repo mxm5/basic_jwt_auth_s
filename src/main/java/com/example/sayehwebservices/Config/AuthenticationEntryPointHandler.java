@@ -39,17 +39,14 @@ public class AuthenticationEntryPointHandler implements AuthenticationEntryPoint
         String remoteAddress = httpServletRequest.getRemoteAddr();
         ResponseEntity<String> response =
                 new ResponseEntity<>(
-                        "error msg: " + e.getMessage() +
-                                ",cause: " + Arrays.toString(e.getStackTrace()) +
-                                ",auth: " + authorization +
-                                ",remoteAddress: " + remoteAddress,
+                        "{errors: you are not authorized}",
                         headers,
                         HttpStatus.FORBIDDEN);
         OutputStream out = httpServletResponse.getOutputStream();
         ObjectMapper mapper = new ObjectMapper();
         httpServletResponse.setStatus(403);
         httpServletResponse.setContentType("application/json");
-        mapper.writeValue(out, response);
+        mapper.writeValue(out,response );
         out.flush();
     }
 }

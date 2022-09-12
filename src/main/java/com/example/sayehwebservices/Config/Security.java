@@ -29,7 +29,7 @@ public class Security extends WebSecurityConfigurerAdapter {
     private final JwtFilter jwtFilter;
     private final UsersService userService;
     private final AuthenticationEntryPointHandler authenticationEntryPointHandler;
-    private final AccessDeniedResponseHandler accessDeniedResponseHandler;
+//    private final AccessDeniedResponseHandler accessDeniedResponseHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -52,9 +52,10 @@ public class Security extends WebSecurityConfigurerAdapter {
 //                      "/api/swagger-ui.html",
                         "/api/webjars/**"
                 ).permitAll()
-                .antMatchers("/**").authenticated().and()
+                .antMatchers("/api/v1/chapar/secured").authenticated()
+                .and()
                 .exceptionHandling()
-                .accessDeniedHandler(accessDeniedResponseHandler)
+//                .accessDeniedHandler(accessDeniedResponseHandler)
                 .authenticationEntryPoint(authenticationEntryPointHandler)
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
