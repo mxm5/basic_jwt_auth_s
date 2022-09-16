@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -19,7 +20,6 @@ import java.util.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Users implements UserDetails {
-
 
 
     public Users(String password,
@@ -101,7 +101,18 @@ public class Users implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Collection<GrantedAuthority> allRoles = new HashSet<>();
+        if (this.roleses.size() > 0) {
+            for (Roles roles : roleses) {
+
+                allRoles.add(
+                        new SimpleGrantedAuthority("ROLE_"+roles.getRoleName())
+                );
+
+            }
+        };
+        System.out.println(Arrays.toString(allRoles.toArray()));
+        return allRoles;
     }
 
     @Override
