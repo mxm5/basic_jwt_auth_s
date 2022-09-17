@@ -4,9 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
+@AllArgsConstructor
 @ToString
-public class LoginResponseDto {
-    String token;
-    UserData userData;
+public class UserData {
+    List<String> role;
+    String iat;
+    String exp;
 }
